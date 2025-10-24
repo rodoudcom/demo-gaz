@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Plus, Search, Filter, Image as ImageIcon, Edit2, Trash2 } from 'lucide-react';
 import { Header } from '../../components/Header';
-import { DataTable } from '../../components/DataTable';
 import { Modal } from '../../components/Modal';
 
 const Products = () => {

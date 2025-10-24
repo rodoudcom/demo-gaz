@@ -213,9 +213,13 @@ const handleSubmit = async (e) => {
                   <input type="checkbox" className="w-4 h-4 text-red-600 border-gray-300 rounded focus:ring-red-600" />
                   <span className="ml-2 text-gray-600 font-roboto">Remember me</span>
                 </label>
-                <a href="#" className="text-red-600 hover:text-red-700 font-roboto font-medium">
+                <button
+                    type="button"
+                    onClick={(e) => e.preventDefault()}
+                    className="text-red-600 hover:text-red-700 font-roboto font-medium bg-transparent border-none cursor-pointer"
+                >
                   Forgot password?
-                </a>
+                </button>
               </div>
 
               {/* Submit Button */}

@@ -21,6 +21,7 @@ const Filiales = () => {
   useEffect(() => {
     fetchFiliales();
     loadCountries();
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const loadCountries = async () => {

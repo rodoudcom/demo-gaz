@@ -21,8 +21,8 @@ const Regions = () => {
   useEffect(() => {
     fetchRegions();
     fetchFiliales();
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
-
   const handleSearch = (e) => {
     setFilters({ search: e.target.value });
   };

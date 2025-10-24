@@ -28,10 +28,12 @@ const Users = () => {
     setFilters({ restrictRoles: true });
     fetchUsers();
     fetchFiliales();
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     fetchUsers();
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const handleSearch = (e) => {

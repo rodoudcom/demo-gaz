@@ -81,12 +81,7 @@ const Products = () => {
     }));
   };
 
-  // Get effective price (variant price or default product price)
-  const getEffectivePrice = (product, variant) => {
-    return variant.price !== null && variant.price !== undefined && variant.price !== '' 
-      ? variant.price 
-      : product.defaultPrice;
-  };
+
 
   const handlePhotoUpload = (e, type = 'product') => {
     const files = Array.from(e.target.files);

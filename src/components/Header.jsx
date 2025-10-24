@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Bell, Filter } from 'lucide-react';
+import { Search, Bell } from 'lucide-react';
 
 export const Header = ({ title, subtitle, showFilters }) => {
   return (

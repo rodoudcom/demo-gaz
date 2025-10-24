@@ -27,14 +27,16 @@ const Users = () => {
   const roles = ['Commercial', 'Distributor'];
 
   useEffect(() => {
-    // Filter to show only users in current country manager's country
-    setFilters({ 
+    setFilters({
       countryId: currentUser?.filialeId,
       roles: ['Commercial', 'Distributor']
     });
     fetchUsers();
     loadCommercials();
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
 
   const loadCommercials = () => {
     // Get list of commercials for distributor assignment
@@ -44,6 +46,7 @@ const Users = () => {
 
   useEffect(() => {
     fetchUsers();
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const handleSearch = (e) => {
