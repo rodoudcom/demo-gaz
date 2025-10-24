@@ -98,6 +98,7 @@ const Orders = () => {
     });
 
     const toggleOrder = (orderId) => {
+        if(isDetailModalOpen) console.log('close detail modal');
         setExpandedOrders(prev => ({
             ...prev,
             [orderId]: !prev[orderId]

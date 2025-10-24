@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Search, Filter, Truck as TruckIcon, Users, UserPlus, X } from 'lucide-react';
+import { Plus, Search, Filter, Users, UserPlus} from 'lucide-react';
 import { Header } from '../../components/Header';
 import { DataTable } from '../../components/DataTable';
 import { Modal } from '../../components/Modal';

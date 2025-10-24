@@ -47,11 +47,6 @@ const Products = () => {
         }));
     };
 
-    const getEffectivePrice = (variant, product) => {
-        return variant.distributorPrice !== null && variant.distributorPrice !== undefined
-            ? variant.distributorPrice
-            : (variant.basePrice || product.defaultPrice);
-    };
 
     const handleOpenModal = (product, variant) => {
         setSelectedProduct(product);

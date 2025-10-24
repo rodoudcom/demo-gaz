@@ -3,11 +3,9 @@ import { Plus, Search, Filter } from 'lucide-react';
 import { Header } from '../../components/Header';
 import { DataTable } from '../../components/DataTable';
 import { Modal } from '../../components/Modal';
-import { useAuthStore } from '../../store/authStore';
 import { useRegionStore } from '../../store/regionStore';
 
 const Distributors = () => {
-    const { user: currentUser } = useAuthStore();
     const { regions, fetchRegions } = useRegionStore();
 
     const [distributors, setDistributors] = useState([
