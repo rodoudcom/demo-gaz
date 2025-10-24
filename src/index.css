@@ -1,13 +1,84 @@
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #374649;
+}
+
+/* Fixed Gradient Text for Titles */
+.gradient-title {
+
+
+      background: -webkit-linear-gradient(left, rgb(0, 156, 234), rgb(70, 50, 255)) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  
+}
+
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-red-600 font-roboto bg-white;
+    color: #374649;
+  }
+  
+  /* Buttons remain the same */
+  .btn-primary {
+    @apply bg-red-600 text-white font-semibold text-sm hover:bg-red-700;
+    height: 46px;
+    padding: 0 24px;
+    border-radius: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(237, 0, 0, 0.15);
+  }
+  
+  .btn-primary:disabled {
+    @apply opacity-50 cursor-not-allowed;
+    transform: none;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-red-600 font-semibold text-sm border-2 border-red-600 hover:bg-red-50;
+    height: 46px;
+    padding: 0 24px;
+    border-radius: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .btn-inactive {
+    @apply bg-gray-200 text-gray-500 font-semibold text-sm;
+    height: 46px;
+    padding: 0 24px;
+    border-radius: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: not-allowed;
+    border: none;
+  }
 }
