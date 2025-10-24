@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Loader, Mail, Lock, ArrowRight } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
 import { fakeApi } from '../../api/fakeApi';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const navigate = useNavigate();
   const login = useAuthStore((state) => state.login);
   const canvasRef = useRef(null);
 
@@ -18,7 +18,6 @@ const Login = () => {
     { email: 'sarah.cm@pledge.com', password: 'cm123', role: 'Country Manager' },
     { email: 'mike.commercial@pledge.com', password: 'commercial123', role: 'Commercial' },
     { email: 'alice.dist@pledge.com', password: 'dist123', role: 'Distributor' },
-    { email: 'bob.shop@pledge.com', password: 'shop123', role: 'Shop' },
   ];
 
   // Animated Dots Background
@@ -241,6 +240,24 @@ const handleSubmit = async (e) => {
                   </>
                 )}
               </button>
+              {/* Divider */}
+              <div className="relative my-6">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-300"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-2 bg-white text-gray-500 font-roboto">Or</span>
+                </div>
+              </div>
+              {/* Shop Order Link */}
+              <Link
+                  to="/shop-order"
+                  className="w-full px-6 py-3 bg-white text-red-600 border border-red-600 font-semibold text-base hover:bg-red-50 transition-all text-center block font-roboto"
+                  style={{ borderRadius: '25px' }}
+              >
+                Place an Order (Shop)
+              </Link>
+
             </form>
           </div>
         </div>
@@ -271,6 +288,7 @@ const handleSubmit = async (e) => {
                   </div>
                 </button>
               ))}
+
             </div>
 
             <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">

@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { 
-  LayoutDashboard, 
-  Building2, 
-  MapPin, 
-  Users, 
+import {
+  LayoutDashboard,
+  Building2,
+  MapPin,
+  Users,
   Package,
   Settings,
   LogOut,
-  ChevronRight
+  ChevronRight,
+  ShoppingCart // ADD THIS
 } from 'lucide-react';
+
 import { useAuthStore } from '../store/authStore';
 
 export const Sidebar = () => {
@@ -22,28 +24,46 @@ export const Sidebar = () => {
     navigate('/login');
   };
 
-const getMenuItems = () => {
-  // Convert role to URL path (remove spaces, lowercase)
-  const baseUrl = `/${user?.role?.toLowerCase().replace(/\s+/g, '')}`;
-  
-  // Menu items based on role
-  if (user?.role === 'Admin') {
-    return [
-      { path: `${baseUrl}/dashboard`, icon: LayoutDashboard, label: 'Dashboard' },
-      { path: `${baseUrl}/filiales`, icon: Building2, label: 'Filiales' },
-      { path: `${baseUrl}/regions`, icon: MapPin, label: 'Regions' },
-      { path: `${baseUrl}/users`, icon: Users, label: 'Users' },
-    ];
-  } else if (user?.role === 'Country Manager') {
-    return [
-      { path: `${baseUrl}/dashboard`, icon: LayoutDashboard, label: 'Dashboard' },
-      { path: `${baseUrl}/regions`, icon: MapPin, label: 'Regions' },
-      { path: `${baseUrl}/users`, icon: Users, label: 'Users' },
-      { path: `${baseUrl}/products`, icon: Package, label: 'Products' },
-      { path: `${baseUrl}/settings`, icon: Settings, label: 'Settings' },
-    ];
-  }
-}
+// Update the getMenuItems function to include Commercial
+  const getMenuItems = () => {
+    const baseUrl = `/${user?.role?.toLowerCase().replace(/\s+/g, '')}`;
+
+    if (user?.role === 'Admin') {
+      return [
+        { path: `${baseUrl}/dashboard`, icon: LayoutDashboard, label: 'Dashboard' },
+        { path: `${baseUrl}/filiales`, icon: Building2, label: 'Filiales' },
+        { path: `${baseUrl}/regions`, icon: MapPin, label: 'Regions' },
+        { path: `${baseUrl}/users`, icon: Users, label: 'Users' },
+      ];
+    } else if (user?.role === 'Country Manager') {
+      return [
+        { path: `${baseUrl}/dashboard`, icon: LayoutDashboard, label: 'Dashboard' },
+        { path: `${baseUrl}/regions`, icon: MapPin, label: 'Regions' },
+        { path: `${baseUrl}/users`, icon: Users, label: 'Users' },
+        { path: `${baseUrl}/products`, icon: Package, label: 'Products' },
+        { path: `${baseUrl}/settings`, icon: Settings, label: 'Settings' },
+      ];
+    } else if (user?.role === 'Commercial') {
+      return [
+        { path: `${baseUrl}/dashboard`, icon: LayoutDashboard, label: 'Dashboard' },
+        { path: `${baseUrl}/distributors`, icon: Users, label: 'Distributors' },
+        { path: `${baseUrl}/shops`, icon: Building2, label: 'Point of Sale' },
+      ];
+    } else if (user?.role === 'Distributor') {
+      return [
+        { path: `${baseUrl}/dashboard`, icon: LayoutDashboard, label: 'Dashboard' },
+        { path: `${baseUrl}/livreurs`, icon: Users, label: 'Livreurs' },
+        { path: `${baseUrl}/orders`, icon: ShoppingCart, label: 'Orders' },
+        { path: `${baseUrl}/trucks`, icon: Package, label: 'Trucks' },
+        { path: `${baseUrl}/products`, icon: Package, label: 'Products' },
+        { path: `${baseUrl}/settings`, icon: Settings, label: 'Settings' },
+      ];
+    }
+
+    return [];
+  };
+
+
 
   const menuItems = getMenuItems();
 

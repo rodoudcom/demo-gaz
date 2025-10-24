@@ -16,6 +16,24 @@ import CountryManagerUsers from './pages/countrymanager/Users';
 import CountryManagerProducts from './pages/countrymanager/Products.jsx';
 import CountryManagerSettings from './pages/countrymanager/Settings';
 
+//Commercial Pges
+import CommercialDashboard from './pages/commercial/Dashboard';
+import CommercialDistributors from './pages/commercial/Distributors';
+import CommercialShops from './pages/commercial/Shops';
+
+//Dist pages
+import DistributorDashboard from './pages/distributor/Dashboard';
+import DistributorLivreurs from './pages/distributor/Livreurs';
+import DistributorTrucks from './pages/distributor/Trucks';
+import DistributorProducts from './pages/distributor/Products';
+import DistributorSettings from './pages/distributor/Settings';
+
+//Order page
+import ShopOrder from './pages/public/ShopOrder';
+import OrderSuccess from './pages/public/OrderSuccess';
+
+import DistributorOrders from './pages/distributor/Orders';
+
 // Helper function to convert role to URL path
 const getRoleBasePath = (role) => {
   if (!role) return '';
@@ -104,6 +122,58 @@ function App() {
             <CountryManagerSettings />
           </ProtectedRoute>
         } />
+
+        {/* Commercial Routes */}
+        <Route path="/commercial/dashboard" element={
+          <ProtectedRoute allowedRoles={['Commercial']}>
+            <CommercialDashboard />
+          </ProtectedRoute>
+        } />
+        <Route path="/commercial/distributors" element={
+          <ProtectedRoute allowedRoles={['Commercial']}>
+            <CommercialDistributors />
+          </ProtectedRoute>
+        } />
+        <Route path="/commercial/shops" element={
+          <ProtectedRoute allowedRoles={['Commercial']}>
+            <CommercialShops />
+          </ProtectedRoute>
+        } />
+
+        {/* Distributor Routes */}
+        <Route path="/distributor/dashboard" element={
+          <ProtectedRoute allowedRoles={['Distributor']}>
+            <DistributorDashboard />
+          </ProtectedRoute>
+        } />
+        <Route path="/distributor/orders" element={
+          <ProtectedRoute allowedRoles={['Distributor']}>
+            <DistributorOrders />
+          </ProtectedRoute>
+        } />
+        <Route path="/distributor/livreurs" element={
+          <ProtectedRoute allowedRoles={['Distributor']}>
+            <DistributorLivreurs />
+          </ProtectedRoute>
+        } />
+        <Route path="/distributor/trucks" element={
+          <ProtectedRoute allowedRoles={['Distributor']}>
+            <DistributorTrucks />
+          </ProtectedRoute>
+        } />
+        <Route path="/distributor/products" element={
+          <ProtectedRoute allowedRoles={['Distributor']}>
+            <DistributorProducts />
+          </ProtectedRoute>
+        } />
+        <Route path="/distributor/settings" element={
+          <ProtectedRoute allowedRoles={['Distributor']}>
+            <DistributorSettings />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/shop-order" element={<ShopOrder />} />
+        <Route path="/order-success" element={<OrderSuccess />} />
 
         {/* Default redirect */}
         <Route path="/" element={<Navigate to={getDefaultRoute()} replace />} />
